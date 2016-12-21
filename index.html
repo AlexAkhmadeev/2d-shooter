@@ -15,17 +15,29 @@
     <script src="guns/FireThrower.js"></script>
     <script src="environment/BlockBreakable.js"></script>
     <script src="maps/Map_Storage.js"></script>
+    <script src="maps/Map_Building.js"></script>
     <script src="maps/MapEditor.js"></script>
     <script src="maps/Map_Forest.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <!--script type="text/javascript" href="https://code.jquery.com/jquery-3.1.0.min.js"></script-->
 </head>
-<body>
+<body class="clip">
   <!--div id="cons"></div-->
   <div id="coords" style="position: absolute;"></div>
 
 <div class="playzone">
   <!-- блоки -->
+
+    <div id="choose_map" style="color: red">
+        <h2>Выбор карты</h2>
+        <ul id="maplist" style="background: ghostwhite; font-size: 25px; color: blue">
+            <li id="forest">Forest</li>
+            <li id="storage">Storage</li>
+            <li id="building">Building</li>
+            <li style="yellow" id="editor">Editor</li>
+        </ul>
+    </div>
+
 </div>
 <br>
     <div id="menu">
@@ -38,9 +50,41 @@
     </div>
 <!--input id="buttCreate" type="button" value="create human"-->
 
-
 <script type="text/javascript">
 
+    document.addEventListener('mousemove', function(event) { console.log("X: " + event.clientX + "\nY: " + event.clientY) });
+
+    document.querySelector("#maplist").addEventListener("click", function(event) {
+            var target = event.target;
+        var chooseMap = document.querySelector("#choose_map");
+
+
+
+        if(target.tagName != 'LI') return;
+
+        if(target.id == "forest") {
+            chooseMap.parentElement.removeChild(chooseMap);
+            new Map_Forest();
+        }
+
+        if(target.id == "editor") {
+            chooseMap.parentElement.removeChild(chooseMap);
+            new MapEditor();
+        }
+
+        if(target.id == "storage") {
+            chooseMap.parentElement.removeChild(chooseMap);
+            new Map_Storage();
+        }
+
+        if(target.id == "building") {
+            chooseMap.parentElement.removeChild(chooseMap);
+            new Map_Building();
+        }
+
+    });
+
+    /**
     var map = prompt('Введите название карты :', 'Forest');
     start(map);
 
@@ -64,7 +108,7 @@
     }
 
     //document.addEventListener('mousemove', function(event) { console.log("X: " + event.clientX + "\nY: " + event.clientY) });
-
+    */
 </script>
 </body>
 </html>
