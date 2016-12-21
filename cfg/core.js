@@ -200,6 +200,7 @@ Object.prototype.a_take_healthkit = function(taker) {
     a_sound('sounds/items/smallmedkit1.wav');
 };
 
+
 /**
  * Подобрать оружие
  * @param taker
@@ -207,10 +208,15 @@ Object.prototype.a_take_healthkit = function(taker) {
 Object.prototype.a_take_weapon = function(taker) {
     var takeElement = this;
     if( !takeElement.classList.contains('weaponbox') ) return;
-    taker.properties.weapons.push(takeElement.weaponName);
+
+    if( taker.properties.weapons.indexOf(takeElement.weaponName) == -1) {
+        taker.properties.weapons.push(takeElement.weaponName);
+    }
+
     document.body.removeChild(takeElement);
     a_sound('sounds/weapons/scock1.wav');
 };
+
 
 /**
  * Ф-я для поворота эл-та с шагом 90 градусов
