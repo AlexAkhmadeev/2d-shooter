@@ -12,12 +12,7 @@ function Bot_Human() {
     bot.classList.add('bot');
     bot.classList.add('alive');
 
-
-
     var props;
-
-    bot.currentWeapon = 0;
-
 
     bot.showhp = false;
 
@@ -55,7 +50,7 @@ function Bot_Human() {
     };
 
     var attackTimer;
-    this.attack = function (frequency) {
+    this.attack = function(frequency) {
 
         if(props.hp == "0") {
             clearInterval(attackTimer);
@@ -136,30 +131,13 @@ function Bot_Human() {
 
     }
 
-    /**
-     * Выстрел
-     */
-    this.shoot = function(event) {
-        var button = event.which;
 
-        var weapon = bot.weapons[bot.currentWeapon];
+    this.hunt = function() {
+        var aim = this.aim;
 
-        if(button == 1) {
-            bot.a_missile_shoot(weapon);
-        }
 
     }
 
-    function changeWeapon() {
-        var countWeapons = bot.weapons.length;
-        if (bot.currentWeapon == countWeapons - 1) {
-            bot.currentWeapon = 0;
-        } else {
-            bot.currentWeapon++;
-        }
-        a_sound('sounds/weapons/scock1.wav');
-        document.querySelector('#currentWeapon').src = "textures/weapons_sprites/" + bot.weapons[bot.currentWeapon] + ".png";
-    }
 
 
 }

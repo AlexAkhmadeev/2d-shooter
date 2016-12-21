@@ -269,10 +269,10 @@ Object.prototype.a_hurt = function(damage_skill, damage) {
 
     if( newStrength <= 0) {
         props.hp = 0;
-        document.body.removeChild(element);
         if(element.classList.contains('human') ) {
-            alert('Игра окончена!');
+            alert("You lose!!!");
         }
+        document.body.removeChild(element);
     } else {
         element.a_hint(newStrength, damage);
     }

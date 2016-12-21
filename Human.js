@@ -1,7 +1,7 @@
 function Human() {
 
 	this.angle = 180; // начальный угол поворота
-	this.hp = 10000;
+	this.hp = 100;
 	this.id = 'player';
 
 	document.querySelector('#HP').value = this.hp;
@@ -10,8 +10,9 @@ function Human() {
 	human.id = this.id;
 
 	human.properties = {
+		alive : true,
 		max_hp: this.hp, // максимальное кол-во HP
-		weapons: ['pistol', 'antitank', 'firethrower', 'laser', 'launcher'], // оружия
+		weapons: ['pistol' /**, 'antitank', 'firethrower', 'laser', 'launcher'*/ ], // оружия
 		current_weapon: 0, // используемое оружие (индекс из weapons)
 		max_ap: 100, // максимум брони
 		hp: this.hp, // hp в данный момент
@@ -106,6 +107,7 @@ function Human() {
 
 		function onkeyup(event) {
 			var keyCode = event.keyCode;
+
 			if(keyCode == 87) {
 				clearInterval(timerTop);
 				stateTop = null;
@@ -166,7 +168,7 @@ function Human() {
 		human.a_missile_shoot(weapon);
 	}
 
-	}
+	};
 
 	function changeWeapon() {
 		var countWeapons = props.weapons.length;
@@ -179,5 +181,13 @@ function Human() {
 		document.querySelector('#currentWeapon').src = "textures/weapons_sprites/" + props.weapons[props.current_weapon] + ".png";
 	}
 
+
+	function offListeners() {
+
+		window.removeEventListener('keydown', onkeydown);
+		window.removeEventListener('keyup', onkeyup);
+		window.removeEventListener('click', this.shoot );
+
+	}
 
 }
