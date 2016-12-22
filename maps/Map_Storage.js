@@ -3,36 +3,36 @@ function Map_Storage() {
     ground.style.backgroundImage = 'url(textures/wood4.jpg)';
     ground.style.backgroundSize = '200px 200px';
 
-    var block = new Block(); // Статичный блок
+    var block = new Block(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     block.backgroundImage = 'url(textures/wood1.jpg)';
-    var box = new BlockBreakable(); // Разбивающийся блок
-    var smallBox = new BlockBreakable(); // Разбивающийся блок
-    var healthkit = new HealthKit("hk"); // Аптечки
-    var launcherbox = new Item_Weaponbox('launcher'); // Новый weaponbox
-    var laserbox = new Item_Weaponbox('laser'); // Новый weaponbox
-    var antitankbox = new Item_Weaponbox('antitank'); // Новый weaponbox
+    var box = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    var smallBox = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    var healthkit = new HealthKit("hk"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    var launcherbox = new Weaponbox('launcher'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var laserbox = new Weaponbox('laser'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var antitankbox = new Weaponbox('antitank'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
 
-    // Респауним игрока
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     var john = new Human();
     john.appear(305, 110);
 
     /**
-    //карта
+    //пїЅпїЅпїЅпїЅпїЅ
     block.appear(350, 400, 100, 200);
     block.appear(900, 950, 500, 650);
 
-    //ящики
+    //пїЅпїЅпїЅпїЅпїЅ
     box.appear(850, 1000, 200, 350, 100);
     box.appear(700, 850, 500, 650, 100);
     box.appear(1000, 1150, 600, 750, 100);
     box.appear(1200, 1350, 600, 750, 100);
 
-    //маленькие ящики
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     smallBox.backgroundImage = "url(textures/box2.jpg)";
     smallBox.appear(1400, 1500, 650, 750, 50);
     smallBox.appear(300, 400, 350, 450, 50);
 
-    //аптечки
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     healthkit.appear(1350, 200);
 */
     healthkit.appear(350, 250);
@@ -154,7 +154,7 @@ function Map_Storage() {
     boss.move(10,true);
 
 
-    //оружие
+    //пїЅпїЅпїЅпїЅпїЅпїЅ
     antitankbox.appear(800, 200);
     laserbox.appear(300, 800);
     launcherbox.appear(800, 750);

@@ -3,22 +3,22 @@ function Map_Forest() {
     ground.style.backgroundImage = 'url(textures/tile1.jpg)';
     ground.style.backgroundSize = '100px 100px';
 
-    var block = new Block(); // Статичный блок
+    var block = new Block(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     block.backgroundImage = "url(textures/wood1.jpg)";
-    var stone = new BlockBreakable(); // Разбивающийся блок
+    var stone = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     stone.backgroundImage = "url(textures/stone1.jpg)";
-    var smallBox = new BlockBreakable(); // Разбивающийся блок
-    var healthkit = new HealthKit("hk"); // Аптечки
+    var smallBox = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    var healthkit = new HealthKit("hk"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-    var launcherbox = new Item_Weaponbox('launcher'); // Новый weaponbox
-    var laserbox = new Item_Weaponbox('laser'); // Новый weaponbox
-    var antitankbox = new Item_Weaponbox('antitank'); // Новый weaponbox
+    var launcherbox = new Weaponbox('launcher'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var laserbox = new Weaponbox('laser'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var antitankbox = new Weaponbox('antitank'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
 
-    //аптечки
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     healthkit.appear(1350, 200);
     healthkit.appear(550, 600);
 
-    //рамка
+    //пїЅпїЅпїЅпїЅпїЅ
     block.appear(250, 1750, 50, 75);
     block.appear(1725, 1750, 50, 900);
     block.appear(250, 275, 75, 900);
@@ -47,16 +47,16 @@ function Map_Forest() {
     block.appear(1596, 1665, 629, 644);
     block.appear(1648, 1665, 642, 747);
 
-    //маленькие ящики
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     smallBox.backgroundImage = "url(textures/box2.jpg)";
     smallBox.appear(1400, 1500, 650, 750, 200);
     smallBox.appear(300, 400, 350, 450, 200);
 
-    // прочный камень
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     //stone.appear(700, 900, 450, 650, 1000);
 
 
-    //оружие
+    //пїЅпїЅпїЅпїЅпїЅпїЅ
     antitankbox.appear(800, 200);
     laserbox.appear(800, 800);
     launcherbox.appear(1400, 750);
@@ -72,7 +72,7 @@ function Map_Forest() {
 
 
 
-    // Респауним игрока
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     var john = new Human();
     john.appear(305, 110);
 

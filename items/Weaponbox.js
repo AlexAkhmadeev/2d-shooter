@@ -1,4 +1,4 @@
-function Item_Weaponbox(weaponName) {
+function Weaponbox(weaponName) {
 
     this.weaponName = weaponName;
 
@@ -17,10 +17,5 @@ function Item_Weaponbox(weaponName) {
         document.body.appendChild(weaponbox);
     };
 
-    function asda(event) {
-
-      
-
-    }
 
 }

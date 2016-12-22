@@ -6,9 +6,9 @@ block.backgroundImage = 'url(textures/wood1.jpg)';
 var box = new BlockBreakable(); // Разбивающийся блок
 var smallBox = new BlockBreakable(); // Разбивающийся блок
 var healthkit = new HealthKit("hk"); // Аптечки
-var launcherbox = new Item_Weaponbox('launcher'); // Новый weaponbox
-var laserbox = new Item_Weaponbox('laser'); // Новый weaponbox
-var antitankbox = new Item_Weaponbox('antitank'); // Новый weaponbox
+var launcherbox = new Weaponbox('launcher'); // Новый weaponbox
+var laserbox = new Weaponbox('laser'); // Новый weaponbox
+var antitankbox = new Weaponbox('antitank'); // Новый weaponbox
 block.appear(250, 1750 ,50, 75);
 block.appear(1725, 1750 ,50, 900);
 block.appear(250, 275 ,75, 900);

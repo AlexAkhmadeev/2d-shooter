@@ -1,16 +1,16 @@
 function Map_Building() {
 
 
-    var block = new Block(); // Статичный блок
+    var block = new Block(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     block.backgroundImage = 'url(textures/wood1.jpg)';
-    var box = new BlockBreakable(); // Разбивающийся блок
-    var smallBox = new BlockBreakable(); // Разбивающийся блок
-    var healthkit = new HealthKit("hk"); // Аптечки
-    var launcherbox = new Item_Weaponbox('launcher'); // Новый weaponbox
-    var laserbox = new Item_Weaponbox('laser'); // Новый weaponbox
-    var antitankbox = new Item_Weaponbox('antitank'); // Новый weaponbox
+    var box = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    var smallBox = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    var healthkit = new HealthKit("hk"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    var launcherbox = new Weaponbox('launcher'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var laserbox = new Weaponbox('laser'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var antitankbox = new Weaponbox('antitank'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
 
-    // Респауним игрока
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     var john = new Human();
     john.appear(300, 800);
 
@@ -72,6 +72,6 @@ function Map_Building() {
     bot5.attack(150);
     bot5.move(5);
 
-
+    antitankbox.appear(350, 100);
 
 }
