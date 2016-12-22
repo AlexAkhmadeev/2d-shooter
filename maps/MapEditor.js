@@ -43,9 +43,9 @@ function MapEditor() {
     var box = new BlockBreakable(); // Разбивающийся блок
     var smallBox = new BlockBreakable(); // Разбивающийся блок
     var healthkit = new HealthKit("hk"); // Аптечки
-    var launcherbox = new Item_Weaponbox('launcher'); // Новый weaponbox
-    var laserbox = new Item_Weaponbox('laser'); // Новый weaponbox
-    var antitankbox = new Item_Weaponbox('antitank'); // Новый weaponbox
+    var launcherbox = new Weaponbox('launcher'); // Новый weaponbox
+    var laserbox = new Weaponbox('laser'); // Новый weaponbox
+    var antitankbox = new Weaponbox('antitank'); // Новый weaponbox
 
     block.opacity = 0.7;
     block.backgroundImage = 'url(textures/wood1.jpg)';
