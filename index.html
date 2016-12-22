@@ -20,8 +20,8 @@
     <script src="maps/MapEditor.js"></script>
     <script src="maps/Map_Forest.js"></script>
     <script src="maps/Map_Factory.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <!--script type="text/javascript" href="https://code.jquery.com/jquery-3.1.0.min.js"></script-->
+    <script src="maps/Map_Mansion.js"></script>
+    <script src="maps/Map_Area.js"></script>
 </head>
 <body class="clip">
   <!--div id="cons"></div-->
@@ -37,6 +37,8 @@
             <li id="storage">Storage</li>
             <li id="building">Building</li>
             <li id="factory">Factory</li>
+            <li id="mansion">Mansion</li>
+            <li id="area">Area</li>
             <li>-----------------------</li>
             <li style="color:green" id="editor">Editor</li>
         </ul>
@@ -62,5 +64,6 @@
     document.addEventListener('mousemove', function(event) { console.log("X: " + event.clientX + "\nY: " + event.clientY) });
 
 </script>
+<div id="lastElement"></div>
 </body>
 </html>

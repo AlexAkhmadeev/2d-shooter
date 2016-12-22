@@ -47,6 +47,12 @@ function Bot_Human() {
         bot.style.left = coordX + "px";
         document.body.appendChild(bot);
         bot.a_hint_render();
+
+    };
+
+    // Для счетчика карты (возвращает текущее кол-во ХП бота)
+    this.currentHp = function() {
+        return props.hp;
     };
 
     var attackTimer;

@@ -630,3 +630,18 @@ Object.prototype.a_hint_render = function() {
     }, 30);
 
 };
+
+
+
+/**
+ * Смена уровня
+ */
+Object.prototype.a_remove_current_map = function() {
+
+    var lastDiv = document.querySelector("#lastElement");
+
+    while(lastDiv.nextElementSibling) {
+        document.body.removeChild(lastDiv.nextElementSibling);
+    }
+
+};

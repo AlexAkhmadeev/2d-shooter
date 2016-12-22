@@ -1,10 +1,6 @@
-
-
 document.querySelector("#maplist").addEventListener("click", function(event) {
     var target = event.target;
     var chooseMap = document.querySelector("#choose_map");
-
-
 
     if(target.tagName != 'LI') return;
 
@@ -31,6 +27,16 @@ document.querySelector("#maplist").addEventListener("click", function(event) {
     if(target.id == "factory") {
         chooseMap.parentElement.removeChild(chooseMap);
         new Map_Factory();
+    }
+
+    if(target.id == "mansion") {
+        chooseMap.parentElement.removeChild(chooseMap);
+        new Map_Mansion();
+    }
+
+    if(target.id == "area") {
+        chooseMap.parentElement.removeChild(chooseMap);
+        new Map_Area();
     }
 
 });
