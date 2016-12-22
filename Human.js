@@ -12,13 +12,13 @@ function Human() {
 	human.properties = {
 		alive : true,
 		max_hp: this.hp, // максимальное кол-во HP
-		weapons: ['pistol' /**, 'antitank', 'firethrower', 'laser', 'launcher'*/ ], // оружия
+		weapons: ['pistol', 'redlaser' /**, 'antitank', 'firethrower', 'laser', 'launcher'*/ ], // оружия
 		current_weapon: 0, // используемое оружие (индекс из weapons)
 		max_ap: 100, // максимум брони
 		hp: this.hp, // hp в данный момент
 		ap: 100, // брони в данный момент
 		level: 1, // уровень
-		damage_skill: 2 // коэффициент урона
+		damage_skill: 1 // коэффициент урона
 	};
 
 	var props = human.properties;

@@ -3,22 +3,22 @@ function Map_Forest() {
     ground.style.backgroundImage = 'url(textures/tile1.jpg)';
     ground.style.backgroundSize = '100px 100px';
 
-    var block = new Block(); // ��������� ����
+    var block = new Block(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     block.backgroundImage = "url(textures/wood1.jpg)";
-    var stone = new BlockBreakable(); // ������������� ����
+    var stone = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     stone.backgroundImage = "url(textures/stone1.jpg)";
-    var smallBox = new BlockBreakable(); // ������������� ����
-    var healthkit = new HealthKit("hk"); // �������
+    var smallBox = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+    var healthkit = new HealthKit("hk"); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
-    var launcherbox = new Weaponbox('launcher'); // ����� weaponbox
-    var laserbox = new Weaponbox('laser'); // ����� weaponbox
-    var antitankbox = new Weaponbox('antitank'); // ����� weaponbox
+    var launcherbox = new Weaponbox('launcher'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var laserbox = new Weaponbox('laser'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
+    var antitankbox = new Weaponbox('antitank'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
 
-    //�������
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     healthkit.appear(1350, 200);
     healthkit.appear(550, 600);
 
-    //�����
+    //пїЅпїЅпїЅпїЅпїЅ
     block.appear(250, 1750, 50, 75);
     block.appear(1725, 1750, 50, 900);
     block.appear(250, 275, 75, 900);
@@ -47,34 +47,36 @@ function Map_Forest() {
     block.appear(1596, 1665, 629, 644);
     block.appear(1648, 1665, 642, 747);
 
-    //��������� �����
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     smallBox.backgroundImage = "url(textures/box2.jpg)";
     smallBox.appear(1400, 1500, 650, 750, 200);
     smallBox.appear(300, 400, 350, 450, 200);
 
-    // ������� ������
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     //stone.appear(700, 900, 450, 650, 1000);
 
 
-    //������
+    //пїЅпїЅпїЅпїЅпїЅпїЅ
     antitankbox.appear(800, 200);
     laserbox.appear(800, 800);
     launcherbox.appear(1400, 750);
 
-
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    var john = new Human();
+    john.appear(305, 110);
 
     var bot7 = new Bot_Human();
-    bot7.allweapons = ['pistol'];
+    bot7.allweapons = ['laser'];
     bot7.hp = 1500;
     bot7.appear(900, 450);
-    bot7.attack(500);
+    bot7.attack(700);
+    bot7.hunt();
+    bot7.onlyMove(5);
     //bot7.move(5);
 
 
 
-    // ��������� ������
-    var john = new Human();
-    john.appear(305, 110);
+
 
     /**
     var bot6 = new Bot_Human();

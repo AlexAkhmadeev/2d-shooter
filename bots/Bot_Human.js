@@ -32,7 +32,7 @@ function Bot_Human() {
             hp: this.hp, // hp в данный момент
             ap: 100, // брони в данный момент
             level: 1, // уровень
-            damage_skill: 2 // коэффициент урона
+            damage_skill: 1 // коэффициент урона
         };
 
         props = bot.properties;
@@ -62,7 +62,7 @@ function Bot_Human() {
         }, frequency);
     };
 
-    var moveTimer, rotateTimer;
+    var moveTimer, rotateTimer, huntTimer;
     this.move = function(rate, isRed) { // режим неадыквата
 
             var currentDirection = "left";
@@ -106,6 +106,41 @@ function Bot_Human() {
 
     };
 
+    this.onlyMove = function(rate, isRed) { // режим неадыквата
+
+        var currentDirection = "left";
+        moveTimer = setInterval(function () {
+
+            //console.log("move!");
+
+            if(props.hp == "0") {
+                clearInterval(moveTimer);
+                clearInterval(rotateTimer);
+                return;
+            }
+
+            animating(isRed);
+
+            if( bot.a_move(currentDirection, rate) ) {
+                currentDirection = randomDirection(currentDirection);
+            }
+
+        }, 40);
+
+        if(props.hp == "0") {
+            clearInterval(moveTimer);
+            clearInterval(rotateTimer);
+        }
+
+
+        function randomDirection(currentDirection) { // Возвращает одно из 4 направлений, кроме того, что было
+            var directions = ['top', 'bottom', 'left', 'right'];
+            directions.splice(directions.indexOf(currentDirection), 1);
+            return directions[parseInt(Math.random() * 3)];
+        }
+
+    };
+
 
 
 
@@ -132,12 +167,48 @@ function Bot_Human() {
     }
 
 
-    this.hunt = function() {
-        var aim = this.aim;
+    this.hunt = function () {
+
+    };
+
+    function hunt() {
+        var aim = document.querySelector('#player');
+
+        huntTimer = setInterval(function () {
+            var centerCoordsAimY = aim.offsetTop + aim.offsetHeight/2;
+            var centerCoordsAimX = aim.offsetLeft + aim.offsetWidth/2;
+
+            var botCoord = bot.getBoundingClientRect();
+
+            var lower = centerCoordsAimY > botCoord.top;
+            var higher = centerCoordsAimY < botCoord.bottom;
+            var toTheLeft = centerCoordsAimX < botCoord.right;
+            var toTheRight = centerCoordsAimX > botCoord.left;
+
+            var inX = toTheLeft && toTheRight;
+            var inY = lower && higher;
+
+            if(inX && higher) {
+                bot.style.transform = "rotate(" +  0 + "deg)";
+            }
+
+            if(inX && lower) {
+                bot.style.transform = "rotate(" +  180 + "deg)";
+            }
+
+            if(inY && toTheLeft) {
+                bot.style.transform = "rotate(" +  270 + "deg)";
+            }
+
+            if(inY && toTheRight) {
+                bot.style.transform = "rotate(" +  90 + "deg)";
+            }
+
+        }, 50);
 
 
     }
 
-
+    hunt();
 
 }

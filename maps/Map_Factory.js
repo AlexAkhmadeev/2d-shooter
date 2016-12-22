@@ -41,12 +41,16 @@ function Map_Factory() {
         bot1.hp = 150;
         bot1.appear(715, 380);
         bot1.attack(500);
+        bot1.onlyMove(5);
+        bot1.hunt();
 
         var bot2 = new Bot_Human();
         bot2.allweapons = ['pistol'];
         bot2.hp = 150;
         bot2.appear(715, 600);
         bot2.attack(500);
+        bot2.onlyMove(5);
+        bot2.hunt();
 
         var bot3 = new Bot_Human();
         bot3.allweapons = ['pistol'];
@@ -54,13 +58,16 @@ function Map_Factory() {
         bot3.angle = 180;
         bot3.appear(350, 150);
         bot3.attack(1000);
+        bot3.onlyMove(5);
+        bot3.hunt();
 
         var bot4 = new Bot_Human();
         bot4.allweapons = ['pistol'];
         bot4.hp = 150;
         bot4.appear(1450, 400);
         bot4.attack(1000);
-
+        bot4.onlyMove(5);
+        bot4.hunt();
 
         var bot5 = new Bot_Human();
         bot5.allweapons = ['pistol'];
@@ -68,6 +75,8 @@ function Map_Factory() {
         bot5.angle = 180;
         bot5.appear(1450, 550);
         bot5.attack(150);
+        bot5.onlyMove(5);
+        bot5.hunt();
 
 
 }

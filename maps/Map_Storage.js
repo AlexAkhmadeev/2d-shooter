@@ -94,64 +94,64 @@ function Map_Storage() {
     bot1.hp = 1500;
     bot1.appear(900, 260);
     bot1.attack(1000);
-    bot1.move(5);
+    bot1.onlyMove(5);
 
     var bot2 = new Bot_Human();
     bot2.allweapons = ['launcher'];
     bot2.hp = 500;
     bot2.appear(1000, 80);
     bot2.attack(1500);
-    bot2.move(3);
+    bot2.onlyMove(3);
 
     var bot3 = new Bot_Human();
     bot3.allweapons = ['antitank'];
     bot3.hp = 500;
     bot3.appear(1600, 300);
     bot3.attack(1000);
-    bot3.move(5);
+    bot3.onlyMove(5);
 
     var bot4 = new Bot_Human();
     bot4.allweapons = ['laser'];
     bot4.hp = 500;
     bot4.appear(1400, 730);
     bot4.attack(700);
-    bot4.move(5);
+    bot4.onlyMove(5);
 
     var bot5 = new Bot_Human();
     bot5.allweapons = ['antitank'];
     bot5.hp = 1500;
     bot5.appear(1000, 600);
     bot5.attack(1000);
-    bot5.move(5);
+    bot5.onlyMove(5);
 
     var bot6 = new Bot_Human();
     bot6.allweapons = ['pistol'];
     bot6.hp = 1500;
     bot6.appear(1000, 260);
     bot6.attack(1000);
-    bot6.move(5);
+    bot6.onlyMove(5);
 
     var bot7 = new Bot_Human();
     bot7.allweapons = ['pistol'];
     bot7.hp = 1500;
     bot7.appear(900, 450);
     bot7.attack(200);
-    bot7.move(5);
+    bot7.onlyMove(5);
 
     var bot8 = new Bot_Human();
     bot8.allweapons = ['laser'];
     bot8.hp = 2000;
     bot8.appear(300, 800);
     bot8.attack(200);
-    bot8.move(15);
+    bot8.onlyMove(15);
 
     var boss = new Bot_Human();
     boss.backgroundImage = 'url(textures/bots/red/bot_human_0.png)';
-    boss.allweapons = ['firethrower'];
+    boss.allweapons = ['redlaser'];
     boss.hp = 10000;
     boss.appear(305, 210);
-    boss.attack(2000);
-    boss.move(10,true);
+    boss.attack(3000);
+    boss.onlyMove(7,true);
 
 
     //������

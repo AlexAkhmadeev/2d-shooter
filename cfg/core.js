@@ -363,7 +363,7 @@ Object.prototype.a_missile_shoot = function(missileType, coordX, coordY, directi
    try {
 
     var shooter = this; // стрелок
-    if(missileType != 'pistol' && missileType != 'launcher' && missileType != 'laser' && missileType != 'firethrower' && missileType != 'antitank') return;
+    if(missileType != 'pistol' && missileType != 'launcher' && missileType != 'laser' && missileType != 'firethrower' && missileType != 'antitank' && missileType != 'redlaser') return;
 
 
     var missile;
@@ -385,6 +385,10 @@ Object.prototype.a_missile_shoot = function(missileType, coordX, coordY, directi
 
     if(missileType == 'antitank') {
         missile = new AntiTank();
+    }
+
+    if(missileType == 'redlaser') {
+        missile = new RedLaser();
     }
 
         var shell = document.createElement('div'); // создаем новый снаряд

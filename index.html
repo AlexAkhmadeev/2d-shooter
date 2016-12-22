@@ -10,6 +10,7 @@
     <script src="guns/Launcher.js"></script>
     <script src="guns/AntiTank.js"></script>
     <script src="guns/Laser.js"></script>
+    <script src="guns/RedLaser.js"></script>
     <script src="items/HealthKit.js"></script>
     <script src="items/Weaponbox.js"></script>
     <script src="guns/FireThrower.js"></script>
@@ -53,70 +54,13 @@
     </div>
 <!--input id="buttCreate" type="button" value="create human"-->
 
+  <!-- Главный контроллер -->
+  <script type="text/javascript" src="Global.js"></script>
+
 <script type="text/javascript">
 
     document.addEventListener('mousemove', function(event) { console.log("X: " + event.clientX + "\nY: " + event.clientY) });
 
-    document.querySelector("#maplist").addEventListener("click", function(event) {
-            var target = event.target;
-        var chooseMap = document.querySelector("#choose_map");
-
-
-
-        if(target.tagName != 'LI') return;
-
-        if(target.id == "forest") {
-            chooseMap.parentElement.removeChild(chooseMap);
-            new Map_Forest();
-        }
-
-        if(target.id == "editor") {
-            chooseMap.parentElement.removeChild(chooseMap);
-            new MapEditor();
-        }
-
-        if(target.id == "storage") {
-            chooseMap.parentElement.removeChild(chooseMap);
-            new Map_Storage();
-        }
-
-        if(target.id == "building") {
-            chooseMap.parentElement.removeChild(chooseMap);
-            new Map_Building();
-        }
-
-        if(target.id == "factory") {
-            chooseMap.parentElement.removeChild(chooseMap);
-            new Map_Factory();
-        }
-
-    });
-
-    /**
-    var map = prompt('Введите название карты :', 'Forest');
-    start(map);
-
-    var newMap;
-    function start(map) {
-
-        document.body.classList.add('clip');
-        // Подгружаем карту
-        document.addEventListener("DOMContentLoaded", function () {
-
-            if(map == 'Storage') {
-                newMap = new Map_Storage();
-            } else if(map == 'Forest') {
-                newMap = new Map_Forest();
-            } else {
-                newMap = new MapEditor();
-            }
-        });
-
-
-    }
-
-    //document.addEventListener('mousemove', function(event) { console.log("X: " + event.clientX + "\nY: " + event.clientY) });
-    */
 </script>
 </body>
 </html>
