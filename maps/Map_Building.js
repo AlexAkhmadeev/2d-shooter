@@ -72,6 +72,6 @@ function Map_Building() {
     bot5.attack(150);
     bot5.move(5);
 
-    antitankbox.appear(350, 100);
+    launcherbox.appear(1650, 100);
 
 }
