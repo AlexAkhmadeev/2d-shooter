@@ -80,6 +80,10 @@ function Human() {
 	function onkeydown(event) {
 		var keyCode = event.keyCode;
 
+		if(props.hp == 0) return;
+
+
+
 		if(keyCode == 82) {
 			changeWeapon();
 		}
@@ -196,6 +200,11 @@ function Human() {
 		window.removeEventListener('keydown', onkeydown);
 		window.removeEventListener('keyup', onkeyup);
 		window.removeEventListener('click', this.shoot );
+
+		clearInterval(timerTop);
+		clearInterval(timerBottom);
+		clearInterval(timerLeft);
+		clearInterval(timerRight);
 
 	}
 

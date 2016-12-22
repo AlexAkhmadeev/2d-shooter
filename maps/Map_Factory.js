@@ -36,47 +36,72 @@ function Map_Factory() {
         var john = new Human();
         john.appear(350, 500);
 
-        var bot1 = new Bot_Human();
-        bot1.allweapons = ['pistol'];
-        bot1.hp = 150;
-        bot1.appear(715, 380);
-        bot1.attack(500);
-        bot1.onlyMove(5);
-        bot1.hunt();
+        var b1 = new Bot_Human();
+        b1.allweapons = ['pistol'];
+        b1.hp = 150;
+        b1.appear(715, 380);
+        b1.attack(500);
+        b1.onlyMove(5);
 
-        var bot2 = new Bot_Human();
-        bot2.allweapons = ['pistol'];
-        bot2.hp = 150;
-        bot2.appear(715, 600);
-        bot2.attack(500);
-        bot2.onlyMove(5);
-        bot2.hunt();
+        var b2 = new Bot_Human();
+        b2.allweapons = ['pistol'];
+        b2.hp = 150;
+        b2.appear(715, 600);
+        b2.attack(500);
+        b2.onlyMove(5);
 
-        var bot3 = new Bot_Human();
-        bot3.allweapons = ['pistol'];
-        bot3.hp = 100;
-        bot3.angle = 180;
-        bot3.appear(350, 150);
-        bot3.attack(1000);
-        bot3.onlyMove(5);
-        bot3.hunt();
+        var b3 = new Bot_Human();
+        b3.allweapons = ['launcher'];
+        b3.hp = 100;
+        b3.angle = 180;
+        b3.appear(350, 150);
+        b3.attack(1000);
+        b3.onlyMove(5);
 
-        var bot4 = new Bot_Human();
-        bot4.allweapons = ['pistol'];
-        bot4.hp = 150;
-        bot4.appear(1450, 400);
-        bot4.attack(1000);
-        bot4.onlyMove(5);
-        bot4.hunt();
+        var b4 = new Bot_Human();
+        b4.allweapons = ['pistol'];
+        b4.hp = 150;
+        b4.appear(1450, 400);
+        b4.attack(1000);
+        b4.onlyMove(5);
 
-        var bot5 = new Bot_Human();
-        bot5.allweapons = ['pistol'];
-        bot5.hp = 150;
-        bot5.angle = 180;
-        bot5.appear(1450, 550);
-        bot5.attack(150);
-        bot5.onlyMove(5);
-        bot5.hunt();
+        var boss = new Bot_Human();
+        boss.allweapons = ['laser'];
+        boss.hp = 150;
+        boss.angle = 180;
+        boss.appear(1450, 550);
+        boss.attack(4000);
+        boss.onlyMove(6, true);
+
+
+    var bots = [b1, b2, b3, b4, boss];
+
+    var onWin = setInterval(function() {
+
+        for(var i = 0 ; i < bots.length; i++) {
+
+            if(bots[i].currentHp() == 0 ) {
+                bots.splice(i, 1);
+            }
+
+        }
+
+        a_log(bots.length);
+
+        if(bots.length == 0) {
+            alert("You Win!!!");
+            clearInterval(onWin);
+
+            john.offListeners();
+            a_remove_current_map();
+
+            setTimeout(function() {
+                new Map_Storage();
+            }, 1000);
+
+        }
+
+    }, 5000);
 
 
 }
