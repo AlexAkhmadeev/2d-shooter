@@ -1,7 +1,7 @@
 function Map_Forest() {
     var ground = document.querySelector('.playzone');
-    ground.style.backgroundImage = 'url(textures/tile1.jpg)';
-    ground.style.backgroundSize = '100px 100px';
+    ground.style.backgroundImage = 'url(textures/grass1.jpg)';
+    ground.style.backgroundSize = '200px 200px';
 
     var block = new Block(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     block.backgroundImage = "url(textures/wood1.jpg)";
@@ -42,7 +42,7 @@ function Map_Forest() {
     block.appear(969, 989, 644, 733);
     block.appear(402, 1596, 731, 749);
     block.appear(401, 1723, 805, 820);
-    block.appear(720, 747, 540, 589);
+    block.appear(720, 747, 540, 589);dedsa
     block.appear(1181, 1209, 439, 488);
     block.appear(1596, 1665, 629, 644);
     block.appear(1648, 1665, 642, 747);
@@ -51,29 +51,25 @@ function Map_Forest() {
     smallBox.backgroundImage = "url(textures/box2.jpg)";
     smallBox.appear(1400, 1500, 650, 750, 200);
     smallBox.appear(300, 400, 350, 450, 200);
+    smallBox.appear(1673, 1725 ,563, 619, 50);
+
 
     // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     //stone.appear(700, 900, 450, 650, 1000);
 
-
-    //пїЅпїЅпїЅпїЅпїЅпїЅ
-    antitankbox.appear(800, 200);
-    laserbox.appear(800, 800);
-    launcherbox.appear(1400, 750);
+    launcherbox.appear(405, 110);
 
     // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     var john = new Human();
     john.appear(305, 110);
 
-    var bot7 = new Bot_Human();
-    bot7.allweapons = ['laser'];
-    bot7.hp = 1500;
-    bot7.appear(900, 450);
-    bot7.attack(700);
-    bot7.hunt();
-    bot7.onlyMove(5);
-    //bot7.move(5);
-
+    var boss = new Bot_Human();
+    boss.allweapons = ['laser'];
+    boss.hp = 1000;
+    boss.appear(900, 450);
+    boss.attack(700);
+    boss.hunt();
+    boss.onlyMove(6, true);
 
 
 
