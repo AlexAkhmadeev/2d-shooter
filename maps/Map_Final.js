@@ -1,4 +1,7 @@
 function Map_Final() {
+    var ground = document.querySelector('.playzone');
+    ground.style.backgroundImage = 'url(textures/stone3.jpg)';
+    ground.style.backgroundSize = '200px 200px';
 
     var block = new Block(); // ��������� ����
     block.backgroundImage = 'url(textures/wood1.jpg)';
@@ -24,31 +27,16 @@ function Map_Final() {
     var john = new Human();
     john.appear(305, 400);
 
-    var b1 = new Bot_Human();
-    b1.allweapons = ['pistol'];
-    b1.hp = 100;
-    b1.appear(850, 280);
-    b1.attack(1000);
-    b1.onlyMove(6);
-
-
-    var b2 = new Bot_Human();
-    b2.allweapons = ['pistol'];
-    b2.hp = 100;
-    b2.appear(550, 850);
-    b2.attack(1000);
-    b1.onlyMove(6);
-
 
     var boss = new Bot_Human();
-    boss.allweapons = ['pistol'];
-    boss.hp = 200;
+    boss.allweapons = ['antitank'];
+    boss.hp = 10000;
     boss.angle = 270;
     boss.appear(1600, 600);
-    boss.onlyMove(4, true);
-    boss.attack(350);
+    boss.onlyMove(3, true);
+    boss.attack(1000);
 
-    var bots = [b1, b2, boss];
+    var bots = [boss];
 
     var onWin = setInterval(function() {
 

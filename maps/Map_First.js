@@ -71,21 +71,23 @@ function Map_First() {
 
         }
 
-        a_log(bots.length);
 
         if(bots.length == 0) {
+            john.offListeners();
+
             alert("You Win!!!");
             clearInterval(onWin);
 
-            john.offListeners();
-            a_remove_current_map();
-
             setTimeout(function() {
-                new Map_Area();
-            }, 1000);
+                a_remove_current_map();
+                setTimeout(function () {
+                    new Map_Area();
+                }, 1000);
+
+            }, 3000);
 
         }
 
-    }, 5000);
+    }, 2000);
 
 }

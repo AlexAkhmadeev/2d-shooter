@@ -4,7 +4,7 @@ function Map_Forest() {
     ground.style.backgroundSize = '200px 200px';
 
     var block = new Block(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
-    block.backgroundImage = "url(textures/wood1.jpg)";
+    block.backgroundImage = "url(textures/bush1.jpg)";
     var stone = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     stone.backgroundImage = "url(textures/stone1.jpg)";
     var smallBox = new BlockBreakable(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
@@ -15,8 +15,9 @@ function Map_Forest() {
     var antitankbox = new Weaponbox('antitank'); // пїЅпїЅпїЅпїЅпїЅ weaponbox
 
     //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-    healthkit.appear(1350, 200);
-    healthkit.appear(550, 600);
+    healthkit.appear(1100, 700);
+    healthkit.appear(700, 700);
+    healthkit.appear(1550, 835);
 
     //пїЅпїЅпїЅпїЅпїЅ
     block.appear(250, 1750, 50, 75);
@@ -33,16 +34,13 @@ function Map_Forest() {
     block.appear(1584, 1604, 459, 499);
     block.appear(1585, 1604, 517, 560);
     block.appear(1585, 1664, 561, 577);
-    block.appear(816, 1492, 205, 207);
-    block.appear(815, 818, 206, 395);
-    block.appear(1487, 1490, 207, 397);
     block.appear(795, 840, 386, 400);
     block.appear(1463, 1517, 392, 402);
     block.appear(407, 1596, 629, 644);
     block.appear(969, 989, 644, 733);
     block.appear(402, 1596, 731, 749);
     block.appear(401, 1723, 805, 820);
-    block.appear(720, 747, 540, 589);dedsa
+    block.appear(720, 747, 540, 589);
     block.appear(1181, 1209, 439, 488);
     block.appear(1596, 1665, 629, 644);
     block.appear(1648, 1665, 642, 747);
@@ -57,32 +55,80 @@ function Map_Forest() {
     // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     //stone.appear(700, 900, 450, 650, 1000);
 
-    launcherbox.appear(405, 110);
+    launcherbox.appear(1650, 825);
+
 
     // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     var john = new Human();
     john.appear(305, 110);
 
+    var b1 = new Bot_Human();
+    b1.allweapons = ['pistol'];
+    b1.hp = 100;
+    b1.appear(1300, 350);
+    b1.attack(500);
+    b1.onlyMove(6);
+
+    var b2 = new Bot_Human();
+    b2.allweapons = ['launcher'];
+    b2.hp = 200;
+    b2.appear(1500, 320);
+    b2.attack(1200);
+    b2.onlyMove(8);
+
+    var b3 = new Bot_Human();
+    b3.allweapons = ['launcher'];
+    b3.hp = 200;
+    b3.appear(1300, 320);
+    b3.attack(1200);
+    b3.onlyMove(8);
+
+    var b4 = new Bot_Human();
+    b4.allweapons = ['pistol'];
+    b4.hp = 250;
+    b4.angle = 270;
+    b4.appear(1650, 485);
+    b4.attack(1200);
+
+
     var boss = new Bot_Human();
-    boss.allweapons = ['laser'];
+    boss.allweapons = ['launcher'];
     boss.hp = 1000;
     boss.appear(900, 450);
     boss.attack(700);
-    boss.hunt();
     boss.onlyMove(6, true);
 
+    /** Changemap */
+    var bots = [b1, b2, b3, b4, boss];
 
+    var onWin = setInterval(function() {
 
+        for(var i = 0 ; i < bots.length; i++) {
 
-    /**
-    var bot6 = new Bot_Human();
-    bot6.allweapons = ['laser'];
-    bot6.hp = 1000;
-    bot6.appear(1000, 260);
-    bot6.attack(500);
-    bot6.move(10);
-    */
+            if(bots[i].currentHp() == 0 ) {
+                bots.splice(i, 1);
+            }
 
+        }
+
+        if(bots.length == 0) {
+            john.offListeners();
+
+            alert("You Win!!!");
+            clearInterval(onWin);
+
+            setTimeout(function() {
+                a_remove_current_map();
+                setTimeout(function () {
+                    new Map_Building();
+                }, 1000);
+
+            }, 3000);
+
+        }
+
+    }, 2000);
+    /** ****************** */
 
 
 }

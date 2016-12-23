@@ -1,8 +1,10 @@
 function Map_Mansion() {
-
+    var ground = document.querySelector('.playzone');
+    ground.style.backgroundImage = 'url(textures/grass1.jpg)';
+    ground.style.backgroundSize = '200px 200px';
 
     var block = new Block(); // Статичный блок
-    block.backgroundImage = 'url(textures/wood1.jpg)';
+    block.backgroundImage = 'url(textures/stone1.jpg)';
     var box = new BlockBreakable(); // Разбивающийся блок
     var smallBox = new BlockBreakable(); // Разбивающийся блок
     var healthkit = new HealthKit("hk"); // Аптечки

@@ -1,8 +1,10 @@
 function Map_Building() {
-
+    var ground = document.querySelector('.playzone');
+    ground.style.backgroundImage = 'url(textures/concrete1.jpg)';
+    ground.style.backgroundSize = '100px 100px';
 
     var block = new Block(); // ��������� ����
-    block.backgroundImage = 'url(textures/wood1.jpg)';
+    block.backgroundImage = 'url(textures/stone1.jpg)';
     var box = new BlockBreakable(); // ������������� ����
     var smallBox = new BlockBreakable(); // ������������� ����
     var healthkit = new HealthKit("hk"); // �������
@@ -36,42 +38,88 @@ function Map_Building() {
     block.appear(473, 500 ,374, 592);
     block.appear(498, 675 ,563, 592);
 
-    var bot1 = new Bot_Human();
-    bot1.allweapons = ['pistol'];
-    bot1.hp = 100;
-    bot1.appear(1165, 650);
-    bot1.attack(700);
-
-    var bot2 = new Bot_Human();
-    bot2.allweapons = ['launcher'];
-    bot2.hp = 250;
-    bot2.appear(1665, 650);
-    bot2.attack(1000);
-    bot2.angle = 270;
-    bot2.move(10);
-
-    var bot3 = new Bot_Human();
-    bot3.allweapons = ['pistol'];
-    bot3.hp = 100;
-    bot3.angle = 180;
-    bot3.appear(350, 150);
-    bot3.attack(1000);
-
-    var bot4 = new Bot_Human();
-    bot4.allweapons = ['pistol'];
-    bot4.hp = 150;
-    bot4.appear(1450, 400);
-    bot4.attack(1000);
-    bot4.move(5);
-
-    var bot5 = new Bot_Human();
-    bot5.allweapons = ['pistol'];
-    bot5.hp = 150;
-    bot5.angle = 180;
-    bot5.appear(1450, 550);
-    bot5.attack(150);
-    bot5.move(5);
 
     launcherbox.appear(1650, 100);
+    healthkit.appear(1100, 300);
+    healthkit.appear(1550, 835);
+
+    var b1 = new Bot_Human();
+    b1.allweapons = ['pistol'];
+    b1.hp = 100;
+    b1.appear(1165, 650);
+    b1.attack(700);
+
+    var b2 = new Bot_Human();
+    b2.allweapons = ['launcher'];
+    b2.hp = 250;
+    b2.appear(1665, 650);
+    b2.attack(1000);
+    b2.angle = 270;
+    b2.onlyMove(10);
+
+    var b3 = new Bot_Human();
+    b3.allweapons = ['pistol'];
+    b3.hp = 100;
+    b3.angle = 180;
+    b3.appear(350, 150);
+    b3.attack(1000);
+
+    var b4 = new Bot_Human();
+    b4.allweapons = ['pistol'];
+    b4.hp = 150;
+    b4.appear(1450, 400);
+    b4.attack(1000);
+    b4.onlyMove(5);
+
+    var b5 = new Bot_Human();
+    b5.allweapons = ['pistol'];
+    b5.hp = 150;
+    b5.angle = 180;
+    b5.appear(1450, 550);
+    b5.attack(300);
+    b5.onlyMove(5);
+
+    var boss = new Bot_Human();
+    boss.allweapons = ['laser'];
+    boss.hp = 1000;
+    boss.angle = 180;
+    boss.appear(1450, 550);
+    boss.attack(1000);
+    boss.onlyMove(4, true);
+
+
+
+    /** Changemap */
+    var bots = [b1, b2, b3, b4, b5, boss];
+
+    var onWin = setInterval(function() {
+
+        for(var i = 0 ; i < bots.length; i++) {
+
+            if(bots[i].currentHp() == 0 ) {
+                bots.splice(i, 1);
+            }
+
+        }
+
+
+        if(bots.length == 0) {
+            john.offListeners();
+
+            alert("You Win!!!");
+            clearInterval(onWin);
+
+            setTimeout(function() {
+                a_remove_current_map();
+                setTimeout(function () {
+                    new Map_Mansion();
+                }, 1000);
+
+            }, 3000);
+
+        }
+
+    }, 2000);
+    /** ****************** */
 
 }

@@ -57,7 +57,7 @@ document.querySelector("#maplist").addEventListener("click", function(event) {
 });
 
 /**
-Порядок карт:
+Последовательность карт‚:
 
 Map_First -> Map_Area -> Map_Forest -> Map_Building -> Map_Mansion -> Map_Factory -> Map_Storage -> Map_Final -> Map_Bonus
 

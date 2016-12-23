@@ -95,6 +95,8 @@ function Map_Area() {
     boss.onlyMove(4, true);
     boss.attack(1500);
 
+
+    /** Changemap */
     var bots = [b1, b2, b3, b4, b5, boss];
 
     var onWin = setInterval(function() {
@@ -110,18 +112,22 @@ function Map_Area() {
         a_log(bots.length);
 
         if(bots.length == 0) {
+            john.offListeners();
+
             alert("You Win!!!");
             clearInterval(onWin);
 
-            john.offListeners();
-            a_remove_current_map();
-
             setTimeout(function() {
-                new Map_Factory();
-            }, 1000);
+                a_remove_current_map();
+                setTimeout(function () {
+                    new Map_Forest();
+                }, 1000);
+
+            }, 3000);
 
         }
 
-    }, 5000);
+    }, 2000);
+    /** ****************** */
 
 }

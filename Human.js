@@ -9,10 +9,28 @@ function Human() {
 	var human = document.createElement('div');
 	human.id = this.id;
 
+	var self = this;
+
+
+
+	this.offListeners = function() {
+
+		window.removeEventListener('keydown', onkeydown);
+		window.removeEventListener('keyup', onkeyup);
+		window.removeEventListener('click', this.shoot );
+
+		clearInterval(timerTop);
+		clearInterval(timerBottom);
+		clearInterval(timerLeft);
+		clearInterval(timerRight);
+
+	};
+
 	human.properties = {
+		offListeners : self.offListeners,
 		alive : true,
 		max_hp: this.hp, // максимальное кол-во HP
-		weapons: ['pistol', 'redlaser'], // оружия
+		weapons: ['pistol'],//, 'redlaser'], // оружия
 		current_weapon: 0, // используемое оружие (индекс из weapons)
 		max_ap: 100, // максимум брони
 		hp: this.hp, // hp в данный момент
@@ -194,18 +212,5 @@ function Human() {
 		document.querySelector('#currentWeapon').src = "textures/weapons_sprites/" + props.weapons[props.current_weapon] + ".png";
 	}
 
-
-	this.offListeners = function() {
-
-		window.removeEventListener('keydown', onkeydown);
-		window.removeEventListener('keyup', onkeyup);
-		window.removeEventListener('click', this.shoot );
-
-		clearInterval(timerTop);
-		clearInterval(timerBottom);
-		clearInterval(timerLeft);
-		clearInterval(timerRight);
-
-	}
 
 }

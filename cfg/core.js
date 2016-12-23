@@ -169,6 +169,7 @@ Object.prototype.a_move = function(direction, step) {
  */
 Object.prototype.a_take = function(taker) {
     var takeElement = this;
+    if(taker.classList.contains('bot')) return;
     takeElement.a_take_healthkit(taker); // подобрать аптечку
     takeElement.a_take_weapon(taker); // подобрать оружие
 };
@@ -270,6 +271,7 @@ Object.prototype.a_hurt = function(damage_skill, damage) {
     if( newStrength <= 0) {
         props.hp = 0;
         if(element.classList.contains('human') ) {
+            props.offListeners();
             alert("You lose!!!");
         }
         document.body.removeChild(element);
@@ -527,6 +529,7 @@ Object.prototype.a_missile_shoot = function(missileType, coordX, coordY, directi
  */
 Object.prototype.a_hit = function(shooter, missile, shell, sptiteX, spriteY) {
     var hittable = this;
+    if(shooter.classList.contains('bot') && hittable.classList.contains('bot')) return; // Frendly Fire Off
     if(hittable.classList.contains('alive') ) { a_sprite('textures/blood.png', 100, 30, sptiteX, spriteY) }
     a_sprite(missile.stopSpriteSrc, missile.stopSpriteDelay, missile.stopSpriteDiametr, sptiteX, spriteY);
     hittable.a_hurt(shooter.properties.damage_skill, missile.damage);
