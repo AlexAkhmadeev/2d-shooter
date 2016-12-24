@@ -89,66 +89,66 @@ function Map_Storage() {
     block.appear(648, 1300 ,806, 835);
     block.appear(648, 800 ,131, 268);
 
-    var bot1 = new Bot_Human();
-    bot1.allweapons = ['pistol'];
-    bot1.hp = 1500;
-    bot1.appear(900, 260);
-    bot1.attack(1000);
-    bot1.onlyMove(5);
+    var b1 = new Bot_Human();
+    b1.allweapons = ['pistol'];
+    b1.hp = 1500;
+    b1.appear(900, 260);
+    b1.attack(1000);
+    b1.onlyMove(5);
 
-    var bot2 = new Bot_Human();
-    bot2.allweapons = ['launcher'];
-    bot2.hp = 500;
-    bot2.appear(1000, 80);
-    bot2.attack(1500);
-    bot2.onlyMove(3);
+    var b2 = new Bot_Human();
+    b2.allweapons = ['launcher'];
+    b2.hp = 500;
+    b2.appear(1000, 80);
+    b2.attack(1500);
+    b2.onlyMove(3);
 
-    var bot3 = new Bot_Human();
-    bot3.allweapons = ['antitank'];
-    bot3.hp = 500;
-    bot3.appear(1600, 300);
-    bot3.attack(1000);
-    bot3.onlyMove(5);
+    var b3 = new Bot_Human();
+    b3.allweapons = ['antitank'];
+    b3.hp = 500;
+    b3.appear(1600, 300);
+    b3.attack(1000);
+    b3.onlyMove(5);
 
-    var bot4 = new Bot_Human();
-    bot4.allweapons = ['laser'];
-    bot4.hp = 500;
-    bot4.appear(1400, 730);
-    bot4.attack(700);
-    bot4.onlyMove(5);
+    var b4 = new Bot_Human();
+    b4.allweapons = ['laser'];
+    b4.hp = 500;
+    b4.appear(1400, 730);
+    b4.attack(700);
+    b4.onlyMove(5);
 
-    var bot5 = new Bot_Human();
-    bot5.allweapons = ['antitank'];
-    bot5.hp = 1500;
-    bot5.appear(1000, 600);
-    bot5.attack(1000);
-    bot5.onlyMove(5);
+    var b5 = new Bot_Human();
+    b5.allweapons = ['antitank'];
+    b5.hp = 1500;
+    b5.appear(1000, 600);
+    b5.attack(1000);
+    b5.onlyMove(5);
 
-    var bot6 = new Bot_Human();
-    bot6.allweapons = ['pistol'];
-    bot6.hp = 1500;
-    bot6.appear(1000, 260);
-    bot6.attack(1000);
-    bot6.onlyMove(5);
+    var b6 = new Bot_Human();
+    b6.allweapons = ['pistol'];
+    b6.hp = 1500;
+    b6.appear(1000, 260);
+    b6.attack(1000);
+    b6.onlyMove(5);
 
-    var bot7 = new Bot_Human();
-    bot7.allweapons = ['pistol'];
-    bot7.hp = 1500;
-    bot7.appear(900, 450);
-    bot7.attack(200);
-    bot7.onlyMove(5);
+    var b7 = new Bot_Human();
+    b7.allweapons = ['pistol'];
+    b7.hp = 1500;
+    b7.appear(900, 450);
+    b7.attack(200);
+    b7.onlyMove(5);
 
-    var bot8 = new Bot_Human();
-    bot8.allweapons = ['laser'];
-    bot8.hp = 2000;
-    bot8.appear(300, 800);
-    bot8.attack(200);
-    bot8.onlyMove(15);
+    var b8 = new Bot_Human();
+    b8.allweapons = ['laser'];
+    b8.hp = 2000;
+    b8.appear(300, 800);
+    b8.attack(400);
+    b8.onlyMove(10);
 
     var boss = new Bot_Human();
     boss.backgroundImage = 'url(textures/bots/red/bot_human_0.png)';
-    boss.allweapons = ['redlaser'];
-    boss.hp = 10000;
+    boss.allweapons = ['antitank'];
+    boss.hp = 3000;
     boss.appear(305, 210);
     boss.attack(3000);
     boss.onlyMove(7,true);
@@ -159,5 +159,40 @@ function Map_Storage() {
     laserbox.appear(300, 800);
     launcherbox.appear(800, 750);
 
+    var bots = [b1, b2, b3, b4, b5, b6, b7, b8, boss];
+
+    var onWin = setInterval(function() {
+
+        for(var i = 0 ; i < bots.length; i++) {
+
+            if(bots[i].currentHp() == 0 ) {
+                bots.splice(i, 1);
+            }
+
+        }
+
+
+        if(bots.length == 0) {
+            john.offListeners();
+
+            alert("You Win!!!");
+            clearInterval(onWin);
+
+            setTimeout(function() {
+                a_remove_current_map();
+                setTimeout(function () {
+                    a_reload_level("final");
+                }, 1000);
+
+            }, 3000);
+
+        }
+
+    }, 2000);
+    /** ****************** */
+
+    return {
+        "timerId" : onWin
+    };
 
 }

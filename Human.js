@@ -1,7 +1,7 @@
 function Human() {
 
 	this.angle = 180; // начальный угол поворота
-	this.hp = 100;
+	this.hp = 1000;
 	this.id = 'player';
 
 	document.querySelector('#HP').value = this.hp;
@@ -30,13 +30,13 @@ function Human() {
 		offListeners : self.offListeners,
 		alive : true,
 		max_hp: this.hp, // максимальное кол-во HP
-		weapons: ['pistol'],//, 'redlaser'], // оружия
+		weapons: ['pistol'], // оружия 'redlaser'
 		current_weapon: 0, // используемое оружие (индекс из weapons)
 		max_ap: 100, // максимум брони
 		hp: this.hp, // hp в данный момент
 		ap: 100, // брони в данный момент
 		level: 1, // уровень
-		damage_skill: 1 // коэффициент урона
+		damage_skill: 2 // коэффициент урона
 	};
 
 	var props = human.properties;

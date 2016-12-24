@@ -47,7 +47,7 @@ function Map_Forest() {
 
     //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     smallBox.backgroundImage = "url(textures/box2.jpg)";
-    smallBox.appear(1400, 1500, 650, 750, 200);
+    smallBox.appear(1400, 1470, 650, 720, 200);
     smallBox.appear(300, 400, 350, 450, 200);
     smallBox.appear(1673, 1725 ,563, 619, 50);
 
@@ -111,6 +111,7 @@ function Map_Forest() {
 
         }
 
+
         if(bots.length == 0) {
             john.offListeners();
 
@@ -120,7 +121,7 @@ function Map_Forest() {
             setTimeout(function() {
                 a_remove_current_map();
                 setTimeout(function () {
-                    new Map_Building();
+                    a_reload_level("building");
                 }, 1000);
 
             }, 3000);
@@ -130,5 +131,8 @@ function Map_Forest() {
     }, 2000);
     /** ****************** */
 
+    return {
+        "timerId" : onWin
+    };
 
 }

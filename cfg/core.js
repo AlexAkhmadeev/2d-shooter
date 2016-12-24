@@ -233,7 +233,18 @@ Object.prototype.a_rotate =	function(isClockwise) {
     }
 
     this.style.transform = "rotate(" +  turn + "deg)";
-}
+};
+
+/**
+ * Ф-я для расчета урона
+ */
+Object.prototype.a_damage_calc = function(damage_skill, damage) {
+
+    if(!damage_skill) damage_skill = 1;
+    var dispersion = 0.3; // Разброс
+    return damage*damage_skill + parseInt(damage*damage_skill*dispersion - (Math.random()*2*damage*damage_skill*dispersion));
+
+};
 
 
 /**
@@ -244,8 +255,7 @@ Object.prototype.a_hurt = function(damage_skill, damage) {
     var element = this;
     var props = element.properties;
 
-    if(!damage_skill) damage_skill = 1;
-    damage = damage*damage_skill;
+    damage = a_damage_calc(damage_skill, damage);
 
     if( !element.hasAttribute("breakable") ) return;
     var newStrength = props.hp - damage;
@@ -273,6 +283,11 @@ Object.prototype.a_hurt = function(damage_skill, damage) {
         if(element.classList.contains('human') ) {
             props.offListeners();
             alert("You lose!!!");
+                a_bot_kill();
+            setTimeout(function () {
+                a_remove_current_map();
+                a_reload_level();
+            }, 2000)
         }
         document.body.removeChild(element);
     } else {
@@ -529,10 +544,22 @@ Object.prototype.a_missile_shoot = function(missileType, coordX, coordY, directi
  */
 Object.prototype.a_hit = function(shooter, missile, shell, sptiteX, spriteY) {
     var hittable = this;
-    if(shooter.classList.contains('bot') && hittable.classList.contains('bot')) return; // Frendly Fire Off
+
+    console.log(shooter);
+
+    if(shooter != window) {
+        if (shooter.classList.contains('bot') && hittable.classList.contains('bot')) return; // Friendly Fire Off
+    }
+
     if(hittable.classList.contains('alive') ) { a_sprite('textures/blood.png', 100, 30, sptiteX, spriteY) }
     a_sprite(missile.stopSpriteSrc, missile.stopSpriteDelay, missile.stopSpriteDiametr, sptiteX, spriteY);
-    hittable.a_hurt(shooter.properties.damage_skill, missile.damage);
+
+    if(shooter != window) {
+        hittable.a_hurt(shooter.properties.damage_skill, missile.damage);
+    } else {
+        hittable.a_hurt(1, missile.damage);
+    }
+
     a_sound(missile.stopSoundSrc);
 };
 
@@ -647,4 +674,96 @@ Object.prototype.a_remove_current_map = function() {
         document.body.removeChild(lastDiv.nextElementSibling);
     }
 
+    clearInterval(a_map_timer_id.timerId);
+
 };
+
+
+/**
+ * Убрать ботов
+ */
+Object.prototype.a_bot_kill = function() {
+
+    var bots = document.querySelectorAll(".bot");
+
+    for(var i = 0 ; i < bots.length; i++ ) {
+
+        bots[i].properties.hp = 0;
+        document.body.removeChild(bots[i]);
+    }
+
+};
+
+
+/**
+ * Убрать ботов
+ */
+Object.prototype.a_new_map = function() {
+
+    var bots = document.querySelectorAll(".bot");
+
+    for(var i = 0 ; i < bots.length; i++ ) {
+
+        bots[i].properties.hp = 0;
+        document.body.removeChild(bots[i]);
+    }
+
+};
+
+
+
+/**
+ * Текущая карта
+ * @type {null}
+ */
+Object.prototype.a_current_map = null;
+Object.prototype.a_map_timer_id = null;
+
+/**
+ * Новый уровень
+ */
+Object.prototype.a_reload_level = function(id) {
+
+    if(id) a_current_map = id;
+
+    if(a_current_map == "forest") {
+        a_map_timer_id = new Map_Forest();
+    }
+
+    if(a_current_map == "storage") {
+        a_map_timer_id = new Map_Storage();
+    }
+
+    if(a_current_map == "building") {
+        a_map_timer_id = new Map_Building();
+    }
+
+    if(a_current_map == "factory") {
+        a_map_timer_id = new Map_Factory();
+    }
+
+    if(a_current_map == "mansion") {
+        a_map_timer_id = new Map_Mansion();
+    }
+
+    if(a_current_map == "area") {
+        a_map_timer_id = new Map_Area();
+    }
+
+    if(a_current_map == "first") {
+        a_map_timer_id = new Map_First();
+    }
+
+    if(a_current_map == "final") {
+        a_map_timer_id = new Map_Final();
+    }
+
+    if(a_current_map == "bonus") {
+        a_map_timer_id = new Map_Bonus();
+    }
+    
+};
+
+/**
+ * Стандартные действия при победе
+ */

@@ -81,7 +81,7 @@ function Map_First() {
             setTimeout(function() {
                 a_remove_current_map();
                 setTimeout(function () {
-                    new Map_Area();
+                    a_reload_level("area");
                 }, 1000);
 
             }, 3000);
@@ -89,5 +89,9 @@ function Map_First() {
         }
 
     }, 2000);
+
+    return {
+        "timerId" : onWin
+    };
 
 }

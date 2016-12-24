@@ -1,11 +1,11 @@
 function Map_Factory() {
 
     var ground = document.querySelector('.playzone');
-    ground.style.backgroundImage = 'url(textures/tile1.jpg)';
+    ground.style.backgroundImage = 'url(textures/metal1.jpg)';
     ground.style.backgroundSize = '200px 200px';
 
     var block = new Block(); // Статичный блок
-    block.backgroundImage = 'url(textures/wood1.jpg)';
+    block.backgroundImage = 'url(textures/brick1.jpg)';
     var box = new BlockBreakable(); // Разбивающийся блок
     var smallBox = new BlockBreakable(); // Разбивающийся блок
     var healthkit = new HealthKit("hk"); // Аптечки
@@ -13,25 +13,58 @@ function Map_Factory() {
     var laserbox = new Weaponbox('laser'); // Новый weaponbox
     var antitankbox = new Weaponbox('antitank'); // Новый weaponbox
 
+    var box = new BlockBreakable();
+    box.backgroundImage = 'url(textures/box1.jpg)';
+
     block.appear(250, 1750 ,50, 75);
     block.appear(1725, 1750 ,50, 900);
     block.appear(250, 275 ,75, 900);
     block.appear(250, 1750 ,890, 915);
-    block.appear(398, 425 ,401, 565);
-    block.appear(748, 775 ,131, 403);
-    block.appear(773, 1075 ,131, 160);
-    block.appear(1048, 1075 ,158, 754);
-    block.appear(748, 1050 ,725, 754);
-    block.appear(973, 1000 ,212, 754);
-    block.appear(898, 925 ,212, 754);
-    block.appear(1123, 1150 ,77, 835);
-    block.appear(1023, 1050 ,752, 808);
-    block.appear(1023, 1050 ,833, 889);
-    block.appear(1323, 1575 ,293, 322);
-    block.appear(1323, 1575 ,671, 700);
-    block.appear(1548, 1575 ,347, 646);
-    block.appear(1198, 1700 ,131, 160);
-    block.appear(1198, 1225 ,158, 484);
+    block.appear(323, 350 ,698, 889);
+    block.appear(274, 425 ,617, 646);
+    block.appear(398, 425 ,644, 835);
+    block.appear(473, 500 ,617, 889);
+    block.appear(473, 500 ,185, 565);
+    block.appear(498, 503 ,563, 619);
+    block.appear(274, 350 ,293, 322);
+    block.appear(398, 500 ,293, 322);
+    block.appear(473, 500 ,77, 133);
+    block.appear(498, 625 ,293, 322);
+    block.appear(598, 625 ,131, 295);
+    block.appear(798, 825 ,77, 835);
+    block.appear(723, 750 ,482, 889);
+    block.appear(623, 825 ,401, 430);
+    block.appear(623, 650 ,428, 727);
+    block.appear(598, 675 ,725, 754);
+    block.appear(823, 975 ,806, 835);
+    block.appear(998, 1050 ,563, 619);
+    block.appear(973, 1000 ,806, 835);
+    block.appear(1098, 1150 ,563, 619);
+    block.appear(1148, 1250 ,806, 835);
+    block.appear(973, 1000 ,563, 808);
+    block.appear(1048, 1100 ,563, 835);
+    block.appear(1148, 1175 ,563, 835);
+    block.appear(823, 875 ,563, 619);
+    block.appear(923, 1000 ,563, 619);
+    block.appear(1298, 1325 ,563, 889);
+    block.appear(1323, 1600 ,185, 214);
+    block.appear(1573, 1600 ,212, 511);
+    block.appear(1323, 1575 ,482, 511);
+    block.appear(1323, 1350 ,266, 430);
+    block.appear(1448, 1475 ,212, 322);
+    block.appear(1323, 1328 ,212, 268);
+
+    box.appear(973, 1075 ,131, 241, 400);
+    box.appear(1348, 1400 ,401, 457, 400);
+    box.appear(523, 600 ,428, 511, 400);
+    box.appear(1448, 1550 ,617, 727, 400);
+
+
+    // Стационарки
+    setInterval(function() {
+        a_missile_shoot('redlaser', 900, 600, 'bottom');
+    }, 500);
+
 
         var john = new Human();
         john.appear(350, 500);
@@ -86,22 +119,29 @@ function Map_Factory() {
 
         }
 
-        a_log(bots.length);
 
         if(bots.length == 0) {
+            john.offListeners();
+
             alert("You Win!!!");
             clearInterval(onWin);
 
-            john.offListeners();
-            a_remove_current_map();
-
             setTimeout(function() {
-                new Map_Storage();
-            }, 1000);
+                a_remove_current_map();
+                setTimeout(function () {
+                    a_reload_level("storage");
+                }, 1000);
+
+            }, 3000);
 
         }
 
-    }, 5000);
+    }, 2000);
+    /** ****************** */
+
+    return {
+        "timerId" : onWin
+    };
 
 
 }

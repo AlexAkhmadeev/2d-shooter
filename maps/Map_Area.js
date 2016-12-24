@@ -1,4 +1,5 @@
 function Map_Area() {
+
     var ground = document.querySelector('.playzone');
     ground.style.backgroundImage = 'url(textures/tile1.jpg)';
     ground.style.backgroundSize = '100px 100px';
@@ -99,6 +100,7 @@ function Map_Area() {
     /** Changemap */
     var bots = [b1, b2, b3, b4, b5, boss];
 
+
     var onWin = setInterval(function() {
 
         for(var i = 0 ; i < bots.length; i++) {
@@ -109,7 +111,6 @@ function Map_Area() {
 
         }
 
-        a_log(bots.length);
 
         if(bots.length == 0) {
             john.offListeners();
@@ -120,7 +121,7 @@ function Map_Area() {
             setTimeout(function() {
                 a_remove_current_map();
                 setTimeout(function () {
-                    new Map_Forest();
+                    a_reload_level("forest");
                 }, 1000);
 
             }, 3000);
@@ -130,4 +131,7 @@ function Map_Area() {
     }, 2000);
     /** ****************** */
 
+    return {
+        "timerId" : onWin
+    };
 }

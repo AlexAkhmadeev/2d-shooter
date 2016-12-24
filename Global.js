@@ -6,7 +6,8 @@ document.querySelector("#maplist").addEventListener("click", function(event) {
 
             if(target.id == "forest") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Forest();
+                a_map_timer_id = new Map_Forest();
+
             }
 
             if(target.id == "editor") {
@@ -16,43 +17,45 @@ document.querySelector("#maplist").addEventListener("click", function(event) {
 
             if(target.id == "storage") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Storage();
+                a_map_timer_id = new Map_Storage();
             }
 
             if(target.id == "building") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Building();
+                a_map_timer_id = new Map_Building();
             }
 
             if(target.id == "factory") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Factory();
+                a_map_timer_id = new Map_Factory();
             }
 
             if(target.id == "mansion") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Mansion();
+                a_map_timer_id = new Map_Mansion();
             }
 
             if(target.id == "area") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Area();
+                a_map_timer_id = new Map_Area();
             }
 
             if(target.id == "first") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_First();
+                a_map_timer_id = new Map_First();
             }
 
             if(target.id == "final") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Final();
+                a_map_timer_id = new Map_Final();
             }
 
             if(target.id == "bonus") {
                 chooseMap.parentElement.removeChild(chooseMap);
-                new Map_Bonus();
+                a_map_timer_id = new Map_Bonus();
             }
+
+            a_current_map = target.id;
 
 });
 

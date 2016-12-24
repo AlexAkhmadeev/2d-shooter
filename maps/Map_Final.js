@@ -48,22 +48,28 @@ function Map_Final() {
 
         }
 
-        a_log(bots.length);
 
         if(bots.length == 0) {
+            john.offListeners();
+
             alert("You Win!!!");
             clearInterval(onWin);
 
-            john.offListeners();
-            a_remove_current_map();
-
             setTimeout(function() {
-                alert("Congrutulations!!!!!");
-                new Map_Bonus();
-            }, 1000);
+                a_remove_current_map();
+                setTimeout(function () {
+                    a_reload_level("bonus");
+                }, 1000);
+
+            }, 3000);
 
         }
 
-    }, 5000);
+    }, 2000);
+    /** ****************** */
+
+    return {
+        "timerId" : onWin
+    };
 
 }

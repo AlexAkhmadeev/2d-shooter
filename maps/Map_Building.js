@@ -37,9 +37,20 @@ function Map_Building() {
     block.appear(473, 675 ,347, 376);
     block.appear(473, 500 ,374, 592);
     block.appear(498, 675 ,563, 592);
+    block.appear(1298, 1375 ,482, 511);
+    block.appear(823, 850 ,671, 754);
+    block.appear(848, 900 ,725, 754);
+    block.appear(323, 500 ,752, 781);
+    block.appear(1298, 1525 ,293, 322);
+    block.appear(1573, 1600 ,158, 322);
+    block.appear(1498, 1525 ,131, 295);
+    block.appear(1648, 1675 ,77, 322);
+    block.appear(1348, 1375 ,833, 889);
+    block.appear(1573, 1600 ,833, 889);
 
 
-    launcherbox.appear(1650, 100);
+
+    launcherbox.appear(1680, 100);
     healthkit.appear(1100, 300);
     healthkit.appear(1550, 835);
 
@@ -112,7 +123,7 @@ function Map_Building() {
             setTimeout(function() {
                 a_remove_current_map();
                 setTimeout(function () {
-                    new Map_Mansion();
+                    a_reload_level("mansion");
                 }, 1000);
 
             }, 3000);
@@ -121,5 +132,9 @@ function Map_Building() {
 
     }, 2000);
     /** ****************** */
+
+    return {
+        "timerId" : onWin
+    };
 
 }

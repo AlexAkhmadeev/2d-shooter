@@ -49,11 +49,4 @@ function Map_Bonus() {
     boss.attack(350);
 
 
-
-    var onWin = setInterval(function() {
-
-
-
-    }, 5000);
-
 }
