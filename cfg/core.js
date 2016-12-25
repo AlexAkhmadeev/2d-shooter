@@ -283,6 +283,7 @@ Object.prototype.a_hurt = function(damage_skill, damage) {
         if(element.classList.contains('human') ) {
             props.offListeners();
             alert("You lose!!!");
+            a_remove_timers();
                 a_bot_kill();
             setTimeout(function () {
                 a_remove_current_map();
@@ -672,6 +673,15 @@ Object.prototype.a_remove_current_map = function() {
         document.body.removeChild(lastDiv.nextElementSibling);
     }
 
+
+};
+
+
+/**
+ * Отмена таймеров
+ */
+Object.prototype.a_remove_timers = function() {
+
     for(var key in a_map_timer_id) {
 
         clearInterval(a_map_timer_id[key]);
@@ -697,20 +707,6 @@ Object.prototype.a_bot_kill = function() {
 };
 
 
-/**
- * Убрать ботов
- */
-Object.prototype.a_new_map = function() {
-
-    var bots = document.querySelectorAll(".bot");
-
-    for(var i = 0 ; i < bots.length; i++ ) {
-
-        bots[i].properties.hp = 0;
-        document.body.removeChild(bots[i]);
-    }
-
-};
 
 
 

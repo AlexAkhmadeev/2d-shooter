@@ -13,7 +13,6 @@ function Map_Factory() {
     var laserbox = new Weaponbox('laser'); // Новый weaponbox
     var antitankbox = new Weaponbox('antitank'); // Новый weaponbox
 
-    var box = new BlockBreakable();
     box.backgroundImage = 'url(textures/box1.jpg)';
 
     block.appear(250, 1750 ,50, 75);
@@ -71,8 +70,8 @@ function Map_Factory() {
     }, 700);
 
 
-    laserbox.appear(420, 850);
-    antitankbox.appear(1450, 350);
+        laserbox.appear(420, 850);
+        antitankbox.appear(1450, 350);
 
         var john = new Human();
         john.appear(275, 850);
