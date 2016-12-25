@@ -36,9 +36,10 @@ function Map_Storage() {
     healthkit.appear(1350, 200);
 */
     healthkit.appear(350, 250);
-    healthkit.appear(750, 750);
+    healthkit.appear(750, 600);
     healthkit.appear(450, 250);
-    healthkit.appear(950, 750);
+    healthkit.appear(950, 600);
+    healthkit.appear(1550, 210);
 
     block.appear(250, 1750 ,50, 75);
     block.appear(1725, 1750 ,50, 900);
@@ -85,9 +86,15 @@ function Map_Storage() {
     block.appear(1498, 1525 ,212, 268);
     block.appear(1573, 1600 ,158, 187);
     block.appear(1423, 1675 ,266, 295);
-    block.appear(1423, 1525 ,401, 646);
     block.appear(648, 1300 ,806, 835);
     block.appear(648, 800 ,131, 268);
+    block.appear(348, 375 ,77, 160);
+    block.appear(1423, 1525 ,401, 430);
+    block.appear(1498, 1525 ,428, 619);
+    block.appear(1423, 1500 ,590, 619);
+    block.appear(1423, 1450 ,482, 538);
+    block.appear(1523, 1550 ,401, 619);
+    block.appear(598, 675 ,617, 673);
 
     var b1 = new Bot_Human();
     b1.allweapons = ['pistol'];
@@ -149,15 +156,15 @@ function Map_Storage() {
     boss.backgroundImage = 'url(textures/bots/red/bot_human_0.png)';
     boss.allweapons = ['antitank'];
     boss.hp = 3000;
-    boss.appear(305, 210);
+    boss.appear(1650, 700);
     boss.attack(3000);
     boss.onlyMove(7,true);
 
 
     //������
-    antitankbox.appear(800, 200);
-    laserbox.appear(300, 800);
-    launcherbox.appear(800, 750);
+    antitankbox.appear(1600, 850);
+    laserbox.appear(300, 850);
+    launcherbox.appear(290, 200);
 
     var bots = [b1, b2, b3, b4, b5, b6, b7, b8, boss];
 

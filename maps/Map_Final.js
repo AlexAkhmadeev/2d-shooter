@@ -14,7 +14,8 @@ function Map_Final() {
 
     var smallBox = new BlockBreakable();
     smallBox.backgroundImage = "url(textures/box2.jpg)";
-    smallBox.appear(1500, 1600, 500, 600, 300);
+    smallBox.appear(1500, 1600, 500, 600, 3000);
+    antitankbox.appear(1550, 550);
     smallBox.appear(580, 680, 250, 350, 100);
 
     block.appear(250, 1750 ,50, 75);
@@ -35,6 +36,20 @@ function Map_Final() {
     boss.appear(1600, 600);
     boss.onlyMove(3, true);
     boss.attack(1000);
+
+    var boss2 = new Bot_Human();
+    boss2.allweapons = ['pistol'];
+    boss2.hp = 2000;
+    boss2.appear(1100, 600);
+    boss2.onlyMove(9, true);
+    boss2.attack(200);
+
+    var boss3 = new Bot_Human();
+    boss3.allweapons = ['pistol'];
+    boss3.hp = 2000;
+    boss3.appear(600, 600);
+    boss3.onlyMove(9, true);
+    boss3.attack(200);
 
     var bots = [boss];
 

@@ -1,7 +1,7 @@
 function Human() {
 
 	this.angle = 180; // начальный угол поворота
-	this.hp = 1000;
+	this.hp = 100;
 	this.id = 'player';
 
 	document.querySelector('#HP').value = this.hp;

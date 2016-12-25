@@ -1,5 +1,9 @@
 function Map_First() {
 
+    var ground = document.querySelector('.playzone');
+    ground.style.backgroundImage = 'url(textures/wood4.jpg)';
+    ground.style.backgroundSize = '100px 100px';
+
     var block = new Block(); // ��������� ����
     block.backgroundImage = 'url(textures/stone2.jpg)';
     var box = new BlockBreakable(); // ������������� ����

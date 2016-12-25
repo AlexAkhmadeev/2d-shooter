@@ -33,11 +33,10 @@
 <div class="playzone">
   <!-- блоки -->
 
-    <div id="choose_map" style="color: red">
-        <h2>Выбор карты</h2>
-        <ul id="maplist" style="background: ghostwhite; font-size: 25px; color: blue">
-            <li id="first">First</li>
-            <li id="area">Area</li>
+    <div style="" id="choose_map">
+        <ul id="maplist" style="list-style-type: none; font-size: 25px; color: blue">
+            <li class="start" id="first">Старт</li>
+            <!--li id="area">Area</li>
             <li id="forest">Forest</li>
             <li id="building">Building</li>
             <li id="mansion">Mansion</li>
@@ -46,7 +45,7 @@
             <li id="final">Final</li>
             <li id="bonus">Bonus</li>
             <li>-----------------------</li>
-            <li style="color:green" id="editor">Editor</li>
+            <li style="color:green" id="editor">Editor</li-->
         </ul>
     </div>
 
@@ -58,7 +57,16 @@
         <span style="color: red">HP&nbsp;</span><input id="HP" type="text" style="text-align: center;font-size: 20px; font-weight: bold;width: 150px; background: white; color: blue;" readonly value="-"><br><br>
         <!--span style="color: red">AP&nbsp;</span><input id="AP" type="text" style="text-align: center;font-size: 20px; font-weight: bold;width: 150px; background: white; color: blue;" readonly value="-"><br><br-->
         <span style="color: red">WP</span><img id="currentWeapon" style="width: 150px; height: 50px; background-size: 100% 100%;" src="textures/weapons_sprites/pistol.png">
-
+        <ul style="color: red; margin-top: 50px;list-style-type: none;">
+            <li>W - вверх</li>
+            <li>S - вниз</li>
+            <li>A - влево</li>
+            <li>D - вправо</li>
+            <li>Q - повотор налево</li>
+            <li>E - повотор направо</li>
+            <li>R - смена оружия</li>
+            <li>ЛКМ - выстрел</li>
+        </ul>
     </div>
 <!--input id="buttCreate" type="button" value="create human"-->
 

@@ -545,8 +545,6 @@ Object.prototype.a_missile_shoot = function(missileType, coordX, coordY, directi
 Object.prototype.a_hit = function(shooter, missile, shell, sptiteX, spriteY) {
     var hittable = this;
 
-    console.log(shooter);
-
     if(shooter != window) {
         if (shooter.classList.contains('bot') && hittable.classList.contains('bot')) return; // Friendly Fire Off
     }
@@ -674,7 +672,11 @@ Object.prototype.a_remove_current_map = function() {
         document.body.removeChild(lastDiv.nextElementSibling);
     }
 
-    clearInterval(a_map_timer_id.timerId);
+    for(var key in a_map_timer_id) {
+
+        clearInterval(a_map_timer_id[key]);
+
+    }
 
 };
 

@@ -61,31 +61,39 @@ function Map_Factory() {
 
 
     // Стационарки
-    setInterval(function() {
-        a_missile_shoot('redlaser', 900, 600, 'bottom');
-    }, 500);
+    var shooterTimer1 = setInterval(function() {
+        a_missile_shoot('firethrower', 1110, 600, 'bottom');
+    }, 700);
 
+
+    var shooterTimer2 = setInterval(function() {
+        a_missile_shoot('firethrower', 1015, 600, 'bottom');
+    }, 700);
+
+
+    laserbox.appear(420, 850);
+    antitankbox.appear(1450, 350);
 
         var john = new Human();
-        john.appear(350, 500);
+        john.appear(275, 850);
 
         var b1 = new Bot_Human();
-        b1.allweapons = ['pistol'];
-        b1.hp = 150;
+        b1.allweapons = ['launcher'];
+        b1.hp = 950;
         b1.appear(715, 380);
         b1.attack(500);
         b1.onlyMove(5);
 
         var b2 = new Bot_Human();
-        b2.allweapons = ['pistol'];
-        b2.hp = 150;
+        b2.allweapons = ['launcher'];
+        b2.hp = 950;
         b2.appear(715, 600);
         b2.attack(500);
         b2.onlyMove(5);
 
         var b3 = new Bot_Human();
         b3.allweapons = ['launcher'];
-        b3.hp = 100;
+        b3.hp = 1000;
         b3.angle = 180;
         b3.appear(350, 150);
         b3.attack(1000);
@@ -93,17 +101,16 @@ function Map_Factory() {
 
         var b4 = new Bot_Human();
         b4.allweapons = ['pistol'];
-        b4.hp = 150;
+        b4.hp = 1500;
         b4.appear(1450, 400);
-        b4.attack(1000);
-        b4.onlyMove(5);
+        b4.attack(300);
+        b4.onlyMove(7);
 
         var boss = new Bot_Human();
         boss.allweapons = ['laser'];
-        boss.hp = 150;
-        boss.angle = 180;
+        boss.hp = 2500;
         boss.appear(1450, 550);
-        boss.attack(4000);
+        boss.attack(800);
         boss.onlyMove(6, true);
 
 
@@ -125,6 +132,7 @@ function Map_Factory() {
 
             alert("You Win!!!");
             clearInterval(onWin);
+            clearInterval(shooterTimer1);
 
             setTimeout(function() {
                 a_remove_current_map();
@@ -137,10 +145,15 @@ function Map_Factory() {
         }
 
     }, 2000);
-    /** ****************** */
+    /** */
 
+    /**
+     * Возвращаем все id таймеров, которые хотим отменить при смене карты
+     */
     return {
-        "timerId" : onWin
+        "timerId" : onWin,
+        "timerId2" : shooterTimer1,
+        "timerId3" : shooterTimer2
     };
 
 
