@@ -126,7 +126,7 @@ function Map_Storage() {
 
     var b5 = new Bot_Human();
     b5.allweapons = ['antitank'];
-    b5.hp = 1500;
+    b5.hp = 2500;
     b5.appear(1000, 600);
     b5.attack(1000);
     b5.onlyMove(5);
@@ -138,26 +138,19 @@ function Map_Storage() {
     b6.attack(1000);
     b6.onlyMove(5);
 
-    var b7 = new Bot_Human();
-    b7.allweapons = ['pistol'];
-    b7.hp = 1500;
-    b7.appear(900, 450);
-    b7.attack(200);
-    b7.onlyMove(5);
-
     var b8 = new Bot_Human();
     b8.allweapons = ['laser'];
     b8.hp = 2000;
     b8.appear(300, 800);
-    b8.attack(400);
+    b8.attack(600);
     b8.onlyMove(10);
 
     var boss = new Bot_Human();
     boss.backgroundImage = 'url(textures/bots/red/bot_human_0.png)';
     boss.allweapons = ['antitank'];
-    boss.hp = 3000;
+    boss.hp = 4000;
     boss.appear(1650, 700);
-    boss.attack(3000);
+    boss.attack(2000);
     boss.onlyMove(7,true);
 
 
@@ -166,7 +159,7 @@ function Map_Storage() {
     laserbox.appear(300, 850);
     launcherbox.appear(290, 200);
 
-    var bots = [b1, b2, b3, b4, b5, b6, b7, b8, boss];
+    var bots = [b1, b2, b3, b4, b5, b6, b8, boss];
 
     var onWin = setInterval(function() {
 

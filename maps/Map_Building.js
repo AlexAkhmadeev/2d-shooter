@@ -64,8 +64,8 @@ function Map_Building() {
     block.appear(1173, 1300 ,698, 727);
 
     var shooterTimer1 = setInterval(function() {
-        a_missile_shoot('pistol', 450, 75, 'bottom');
-    }, 900);
+        a_missile_shoot('firethrower', 450, 75, 'bottom');
+    }, 1500);
 
 
 
@@ -75,9 +75,9 @@ function Map_Building() {
 
     var b1 = new Bot_Human();
     b1.allweapons = ['pistol'];
-    b1.hp = 300;
+    b1.hp = 900;
     b1.appear(1165, 650);
-    b1.attack(200);
+    b1.attack(600);
 
     var b2 = new Bot_Human();
     b2.allweapons = ['launcher'];
@@ -89,9 +89,9 @@ function Map_Building() {
 
     var b3 = new Bot_Human();
     b3.allweapons = ['launcher'];
-    b3.hp = 300;
+    b3.hp = 600;
     b3.appear(350, 150);
-    b3.attack(400);
+    b3.attack(600);
     b3.onlyMove(10);
 
     var b4 = new Bot_Human();
@@ -103,10 +103,10 @@ function Map_Building() {
 
     var b5 = new Bot_Human();
     b5.allweapons = ['pistol'];
-    b5.hp = 250;
+    b5.hp = 650;
     b5.angle = 180;
     b5.appear(1450, 550);
-    b5.attack(300);
+    b5.attack(600);
     b5.onlyMove(5);
 
     var boss = new Bot_Human();

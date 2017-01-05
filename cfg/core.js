@@ -367,7 +367,7 @@ Object.prototype.a_sprite = function(src, delay, diametr, coordX, coordY) {
         sprite.style.left = (coordX - diametr/2) + "px";
     }
 
-}
+};
 
 /**
  * Выстрел орудия снарядного типа (пуля, ракета, ... )
@@ -761,7 +761,3 @@ Object.prototype.a_reload_level = function(id) {
     }
     
 };
-
-/**
- * Стандартные действия при победе
- */

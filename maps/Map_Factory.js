@@ -62,12 +62,12 @@ function Map_Factory() {
     // Стационарки
     var shooterTimer1 = setInterval(function() {
         a_missile_shoot('firethrower', 1110, 600, 'bottom');
-    }, 700);
+    }, 1000);
 
 
     var shooterTimer2 = setInterval(function() {
         a_missile_shoot('firethrower', 1015, 600, 'bottom');
-    }, 700);
+    }, 1000);
 
 
         laserbox.appear(420, 850);
@@ -80,14 +80,14 @@ function Map_Factory() {
         b1.allweapons = ['launcher'];
         b1.hp = 950;
         b1.appear(715, 380);
-        b1.attack(500);
+        b1.attack(600);
         b1.onlyMove(5);
 
         var b2 = new Bot_Human();
         b2.allweapons = ['launcher'];
         b2.hp = 950;
         b2.appear(715, 600);
-        b2.attack(500);
+        b2.attack(600);
         b2.onlyMove(5);
 
         var b3 = new Bot_Human();
@@ -100,14 +100,14 @@ function Map_Factory() {
 
         var b4 = new Bot_Human();
         b4.allweapons = ['pistol'];
-        b4.hp = 1500;
+        b4.hp = 2500;
         b4.appear(1450, 400);
-        b4.attack(300);
+        b4.attack(600);
         b4.onlyMove(7);
 
         var boss = new Bot_Human();
         boss.allweapons = ['laser'];
-        boss.hp = 2500;
+        boss.hp = 3500;
         boss.appear(1450, 550);
         boss.attack(800);
         boss.onlyMove(6, true);
@@ -132,6 +132,7 @@ function Map_Factory() {
             alert("You Win!!!");
             clearInterval(onWin);
             clearInterval(shooterTimer1);
+            clearInterval(shooterTimer2);
 
             setTimeout(function() {
                 a_remove_current_map();

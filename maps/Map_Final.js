@@ -1,7 +1,7 @@
 function Map_Final() {
     var ground = document.querySelector('.playzone');
-    ground.style.backgroundImage = 'url(textures/stone3.jpg)';
-    ground.style.backgroundSize = '200px 200px';
+    ground.style.backgroundImage = 'url(textures/tile1.jpg)';
+    ground.style.backgroundSize = '100px 100px';
 
     var block = new Block(); // ��������� ����
     block.backgroundImage = 'url(textures/wood1.jpg)';
@@ -24,6 +24,7 @@ function Map_Final() {
     block.appear(250, 1750 ,890, 915);
 
     healthkit.appear(1175, 120);
+    healthkit.appear(1175, 520);
 
     var john = new Human();
     john.appear(305, 400);
@@ -39,17 +40,17 @@ function Map_Final() {
 
     var boss2 = new Bot_Human();
     boss2.allweapons = ['pistol'];
-    boss2.hp = 2000;
+    boss2.hp = 3000;
     boss2.appear(1100, 600);
     boss2.onlyMove(9, true);
-    boss2.attack(200);
+    boss2.attack(600);
 
     var boss3 = new Bot_Human();
     boss3.allweapons = ['pistol'];
-    boss3.hp = 2000;
+    boss3.hp = 3000;
     boss3.appear(600, 600);
     boss3.onlyMove(9, true);
-    boss3.attack(200);
+    boss3.attack(600);
 
     var bots = [boss];
 

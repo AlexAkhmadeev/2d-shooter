@@ -1,6 +1,6 @@
 function FireThrower() {
 
-    this.a_step = 2;
+    this.a_step = 4;
     this.a_width = 30;
     this.a_height = 30;
     this.damage = 1500;

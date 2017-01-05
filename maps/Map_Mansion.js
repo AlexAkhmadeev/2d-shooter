@@ -61,16 +61,16 @@ function Map_Mansion() {
 
     var b1 = new Bot_Human();
     b1.allweapons = ['pistol'];
-    b1.hp = 400;
+    b1.hp = 800;
     b1.appear(715, 380);
-    b1.attack(300);
+    b1.attack(600);
     b1.onlyMove(5);
 
     var b2 = new Bot_Human();
     b2.allweapons = ['pistol'];
-    b2.hp = 400;
+    b2.hp = 800;
     b2.appear(715, 600);
-    b2.attack(300);
+    b2.attack(600);
     b2.onlyMove(5);
 
     var b3 = new Bot_Human();
@@ -93,14 +93,14 @@ function Map_Mansion() {
     b5.hp = 600;
     b5.angle = 180;
     b5.appear(1450, 550);
-    b5.attack(150);
+    b5.attack(600);
     b5.onlyMove(5);
 
     var boss = new Bot_Human();
     boss.allweapons = ['laser'];
-    boss.hp = 1500;
+    boss.hp = 2500;
     boss.appear(1450, 550);
-    boss.attack(300);
+    boss.attack(600);
     boss.onlyMove(8, true);
 
     
