@@ -30,7 +30,7 @@ function Human() {
 		offListeners : self.offListeners,
 		alive : true,
 		max_hp: this.hp, // максимальное кол-во HP
-		weapons: ['redlaser'], // оружия 'redlaser'
+		weapons: ['pistol'], // оружия 'redlaser'
 		current_weapon: 0, // используемое оружие (индекс из weapons)
 		max_ap: 100, // максимум брони
 		hp: this.hp, // hp в данный момент
